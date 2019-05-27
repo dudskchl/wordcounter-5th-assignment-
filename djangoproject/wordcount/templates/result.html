@@ -1,13 +1,47 @@
-<h1>그대가 입력한 텍스트는  {{total}}개로 구성되어 있습니다.</h1>
+{% load static %}
 
-<a href="{%url 'home'%}">다시하기</a>
-<br>
-<h2>입력한 텍스트: </h2>
-{{full}}
+<link rel="stylesheet" type="text/css" href="{% static 'wordcount/style.css' %}">
+<head>
+    <style>
+         body {
+            text-align: center;
+            margin-top: 250px;
+        }
+        a{
+            text-decoration: none;
+            color:white;
+        }
+        h1{
+            color:white;
+            
+        }
+        h2{
+            color:white;
+        }
+        .bottom{
+            color:white;
+        }
+    </style>
+</head>
+<body>
+   <div class="top"> 
+    <br><br><br>
+    <h1>Your Text = {{total}} words</h1>
+    <br><br><br>
+   </div>
+  <div class="bottom"> 
+    <h2>Text: </h2>
+    {{full}}
 
-<h2>단어 카운트: </h2>
-{% for word, howmany in dictionary%}
+    <h2>Word Count: </h2>
+    {% for word, howmany in dictionary%}
 
-{{word}} : {{howmany}}
-<br>
-{%endfor%}
+    {{word}} : {{howmany}}
+    <br>
+    {%endfor%}
+    <br><br>
+    <a href="{%url 'home'%}">  redo</a>
+    <br>
+  </div>
+
+</body>

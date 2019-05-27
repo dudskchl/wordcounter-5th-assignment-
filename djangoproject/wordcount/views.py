@@ -19,3 +19,4 @@ def result(request):
             word_dictionary[word]=1
 
     return render(request, 'result.html', { 'full' : text, 'total':len(words), 'dictionary' :word_dictionary.items() })
+
